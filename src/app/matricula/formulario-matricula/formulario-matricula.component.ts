@@ -1,26 +1,26 @@
-import { Component } from '@angular/core';
-import { Alumno } from 'src/app/gestion/alumno/alumno';
-import { AlumnoService } from 'src/app/gestion/alumno/alumno.service';
-import { Curso } from 'src/app/gestion/curso/curso';
-import { CursoService } from 'src/app/gestion/curso/curso.service';
+import { Component, OnInit } from '@angular/core';
+import { Alumno } from 'src/app/gestion/alumnos/alumno';
+import { AlumnoService } from 'src/app/gestion/alumnos/alumno.service';
+import { Curso } from 'src/app/gestion/cursos/curso';
+import { CursoService } from 'src/app/gestion/cursos/curso.service';
 
 @Component({
   selector: 'app-formulario-matricula',
   templateUrl: './formulario-matricula.component.html',
-  styleUrls: ['./formulario-matricula.component.scss']
+  styleUrls: ['./formulario-matricula.component.css']
 })
-export class FormularioMatriculaComponent {
+export class FormularioMatriculaComponent implements OnInit{
+  cursos:Curso[] = [];
+  alumnos: Alumno[] = [];
+  mostrarModuloPago = false;
 
-  lstAlumnos: Alumno[] = [];
-  lstCurso: Curso[] = [];
+  constructor(private cursoService: CursoService, private alumnoService: AlumnoService){}
 
-  constructor(
-    private serviceCurso: CursoService,
-    private serviceAlumno: AlumnoService
-  ) { }
-
-  ngOnInit(): void {
-    this.lstCurso = this.serviceCurso.lista;
-    this.lstAlumnos = this.serviceAlumno.lista;
+  ngOnInit() {
+    this.cursos = this.cursoService.cursos;
+    this.alumnos = this.alumnoService.alumnos;
+  }
+  pagar() {
+    this.mostrarModuloPago = true;
   }
 }

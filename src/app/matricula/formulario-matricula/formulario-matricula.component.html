@@ -1,38 +1,27 @@
-<div id="contactanos" class="row mt-2 p-1" >
-  <div class="bg-success-subtle text-center">
-      <h1>Matrícula</h1>
-  </div>
-  <form id="contactanos-form" method="POST">
-      <div class="container mt-4">
-          <div class="row justify-content-center align-items-center">
-              <div class="col-md-6">
-                  <div class="card">
-                      <div class="card-body">
-                        <div class="form-group">
-                          <label for="numeroTarjeta">Número de tarjeta:</label>
-                          <input type="text" class="form-control" id="numeroTarjeta" name="numeroTarjeta" required />
-                        </div>
-                        <div class="form-group">
-                          <label for="nombreTarjeta">Nombre de tarjeta:</label>
-                          <input type="text" class="form-control" id="nombreTarjeta" name="nombreTarjeta" required />
-                        </div>
-                        <div class="form-group">
-                          <label for="fechaVecimiento">Fecha de Vencimiento:</label>
-                          <input type="text" class="form-control" id="fechaVecimiento" name="fechaVecimiento" required />
-                        </div>
-                        <div class="form-group">
-                          <label for="correo">Correo:</label>
-                          <input type="text" class="form-control" id="correo" name="correo" required />
-                        </div>
-                        <div class="form-group">
-                          <label for="ccv">CCV:</label>
-                          <input type="text" class="form-control" id="ccv" name="ccv" required />
-                        </div>
+<div class="container">
+  <h2>Formulario de Matrícula</h2>
 
-                      </div>
-                  </div>
-              </div>
-          </div>
+  <form>
+    <div class="form-group">
+      <label for="alumno">Selecciona un Alumno:</label>
+      <select id="alumno" class="form-control" name="alumno" required>
+        <option *ngFor="let alumno of alumnos" [value]="alumno.id">{{ alumno.nombres }} {{ alumno.apellidos }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Selecciona Cursos para Matricular:</label>
+      <div *ngFor="let curso of cursos">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" name="cursos" [value]="curso.id" />
+          {{ curso.nombre }}
+        </label>
       </div>
+    </div>
+
+    <button type="button" (click)="pagar()" class="btn btn-primary">Pagar</button>
   </form>
+  <div *ngIf="mostrarModuloPago">
+    <app-pagos></app-pagos>
+  </div>
 </div>

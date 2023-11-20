@@ -13,7 +13,7 @@ import { PagosComponent } from './pagos/pagos.component';
   imports: [
     CommonModule
   ],
-  exports: [
+  exports:[
     FormularioMatriculaComponent,
     PagosComponent
   ]
