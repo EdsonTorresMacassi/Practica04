@@ -1,0 +1,49 @@
+<div id="contactanos" class="row mt-2 p-1" >
+  <div class="bg-success-subtle text-center">
+      <h1>Matrícula</h1>
+  </div>
+  <form [formGroup]="form" autocomplete="off">
+      <div class="container mt-4">
+          <div class="row justify-content-center align-items-center">
+              <div class="col-md-6">
+                  <div class="card">
+                      <div class="card-body">
+                        <div class="form-group">
+                          <label for="id">ID:</label>
+                          <input type="text" class="form-control" id="id" formControlName="id" required />
+                        </div>
+                        <div class="form-group">
+                          <label for="nombres">Nombre:</label>
+                          <input type="text" class="form-control" id="nombres" formControlName="nombres" required />
+                        </div>
+                        <div class="form-group">
+                          <label for="apellidos">Apellidos:</label>
+                          <input type="text" class="form-control" id="apellidos" formControlName="apellidos" required />
+                        </div>
+                        <div class="form-group">
+                          <label for="fechaVecimiento">Fecha de Nacimiento:</label>
+                          <input type="text" class="form-control" id="fechaNacimiento" formControlName="fechaNacimiento" required />
+                        </div>
+                        <div class="form-group">
+                          <label for="direccion">Dirección:</label>
+                          <input type="text" class="form-control" id="direccion" formControlName="direccion" required />
+                        </div>
+                        <div class="form-group">
+                          <label for="correo">Correo:</label>
+                          <input type="text" class="form-control" id="correo" formControlName="correo" required />
+                        </div>
+                        <div class="form-group">
+                          <label for="telefono">Teléfono]:</label>
+                          <input type="text" class="form-control" id="telefono" formControlName="telefono" required />
+                        </div>
+                      </div>
+                      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="button" class="btn btn-primary" (click)="cancelar()" >Cancelar</button>
+                        <button type="button" class="btn btn-primary" (click)="guardar()" >Guardar</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </form>
+</div>

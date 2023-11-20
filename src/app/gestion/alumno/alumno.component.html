@@ -1,0 +1,39 @@
+<div class="container mt-3">
+  <h2>Alumnos</h2>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button type="button" class="btn btn-primary" (click)="crear()" >Nuevo Alumno</button>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Fecha de Nacimiento</th>
+        <th>Dirección</th>
+        <th>Correo</th>
+        <th>Teléfono</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>Edson Enrique</td>
+        <td>Torres Macassi</td>
+        <td>15/09/1987</td>
+        <td>Av.Bertello Mz.A Lt.8 Urb. El Alamo </td>
+        <td>edson.torresmacassi@gmail.com</td>
+        <td>941715484</td>
+      </tr>
+      <tr *ngFor="let registro of lstAlumnos">
+        <td>{{registro.id}}</td>
+        <td>{{registro.nombres}}</td>
+        <td>{{registro.apellidos}}</td>
+        <td>{{registro.fechaNacimiento}}</td>
+        <td>{{registro.direccion}}</td>
+        <td>{{registro.correo}}</td>
+        <td>{{registro.telefono}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
